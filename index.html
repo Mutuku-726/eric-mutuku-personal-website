@@ -1489,6 +1489,18 @@ document.querySelectorAll(".fade-in").forEach(function(element) {
   observer.observe(element);
 });
 </script>
-
+<!-- Google Analytics Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-track]').forEach(function(button) {
+    button.addEventListener('click', function() {
+      gtag('event', button.getAttribute('data-track'), {
+        event_category: 'conversion',
+        event_label: button.innerText
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
