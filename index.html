@@ -1396,9 +1396,9 @@ Brand positioning and digital marketing for a skincare brand focused on becoming
         </a>
         
 
-        <a href="#contact" class="btn btn-outline">
-          Discuss Your Business
-        </a>
+<a href="#contact" class="btn btn-outline" data-track="discuss_business">
+    Discuss Your Business
+</a>
 
       </div>
 
@@ -1495,14 +1495,15 @@ document.querySelectorAll(".fade-in").forEach(function(element) {
 <!-- Google Analytics Event Tracking -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('[data-track]').forEach(function(button) {
-    button.addEventListener('click', function() {
-      gtag('event', button.getAttribute('data-track'), {
-        event_category: 'conversion',
-        event_label: button.innerText
-      });
+    document.querySelectorAll('[data-track]').forEach(function(element) {
+        element.addEventListener('click', function() {
+            gtag('event', 'conversion_click', {
+                event_category: 'lead_generation',
+                event_label: element.getAttribute('data-track'),
+                button_text: element.innerText.trim()
+            });
+        });
     });
-  });
 });
 </script>
 </body>
